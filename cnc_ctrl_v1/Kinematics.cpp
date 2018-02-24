@@ -213,8 +213,8 @@ void  Kinematics::triangularInverse(float xTarget,float yTarget, float* aChainLe
 
     //Calculate the chain angles from horizontal, based on if the chain connects to the sled from the top or bottom of the sprocket
     if(sysSettings.chainOverSprocket == 1){
-        Chain1Angle = asin((_yCordOfMotor - yTarget)/Motor1Distance) + asin(R/Motor1Distance);
-        Chain2Angle = asin((_yCordOfMotor - yTarget)/Motor2Distance) + asin(R/Motor2Distance);
+        Chain1Angle = 3.14159 - acos(R/Motor1Distance) - acos((_yCordOfMotor - yTarget)/Motor1Distance);
+        Chain2Angle = 3.14159 - acos(R/Motor2Distance) - acos((_yCordOfMotor - yTarget)/Motor2Distance);
 
         Chain1AroundSprocket = R * Chain1Angle;
         Chain2AroundSprocket = R * Chain2Angle;
